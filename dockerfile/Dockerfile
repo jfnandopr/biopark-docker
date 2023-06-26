@@ -13,7 +13,7 @@ WORKDIR /var/www/
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-#ADD index.tar.gz /var/www/html/
+# COPY index.html /var/www/html/index.html
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
