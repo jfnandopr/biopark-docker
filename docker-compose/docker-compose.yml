@@ -14,11 +14,14 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: 123456
       WORDPRESS_DB_NAME: wordpress
+      # WORDPRESS_CONFIG_EXTRA: |
+      #   define('WP_HOME', 'https://jfnandopr-probable-adventure-9v49r67qv2x-80.preview.app.github.dev');
+      #   define('WP_SITEURL', 'https://jfnandopr-probable-adventure-9v49r67qv2x-80.preview.app.github.dev');
     volumes:
       - wordpress:/var/www/html
 
   db:
-    image: mysql:5.7
+    image: mysql
     restart: always
     environment:
       MYSQL_DATABASE: wordpress
@@ -34,7 +37,7 @@ services:
     depends_on:
       - db
     ports:
-      - 8080:8080
+      - 8081:8080
     networks:
       - backend
 
